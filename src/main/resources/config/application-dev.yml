@@ -48,6 +48,9 @@ spring:
       protocolVersion: V4
       compression: LZ4
       keyspaceName: Authentication
+      username: cassandra
+      password: cassandra
+
   mail:
     host: localhost
     port: 25
