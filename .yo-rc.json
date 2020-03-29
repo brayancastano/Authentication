@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.paizoun",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "uaa",
+    "baseName": "Authentication",
+    "packageName": "com.paizoun",
+    "packageFolder": "com/paizoun",
+    "serverPort": "9999",
+    "authenticationType": "uaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "cassandra",
+    "devDatabaseType": "cassandra",
+    "prodDatabaseType": "cassandra",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZDYzOWNhZTlhNGJmZDQwMjcyYTE4YzBmNDRiM2Q5YzYyYmYwOTNjZjhkNmQwMGI3ZTU3MDI0YzA5MmFkZGFhOTBmODQ3YmEwNDg2MTcyY2NmZGU5N2UxNDA0NDFlOTZjZWVmZGJjOWRlYmRjYzk1NjUyMzYxMmY1NmY2YmYyZjA=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1585443932359,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "es",
+    "languages": ["es", "en"],
+    "blueprints": [],
+    "skipClient": true
+  }
+}

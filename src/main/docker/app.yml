@@ -1,0 +1,33 @@
+version: '2'
+services:
+  authentication-app:
+    image: authentication
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+      - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+      - SPRING_DATA_CASSANDRA_CONTACTPOINTS=authentication-cassandra
+      - JHIPSTER_SLEEP=80 # gives time for uaa and the Cassandra cluster to start and execute the migration scripts
+  authentication-cassandra:
+    extends:
+      file: cassandra-cluster.yml
+      service: authentication-cassandra
+  authentication-cassandra-node:
+    image: cassandra:3.11.5
+    environment:
+      - CASSANDRA_SEEDS=authentication-cassandra
+  authentication-cassandra-migration:
+    extends:
+      file: cassandra-migration.yml
+      service: authentication-cassandra-migration
+    environment:
+      - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql
+  jhipster-registry:
+    extends:
+      file: jhipster-registry.yml
+      service: jhipster-registry
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
+      - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/
